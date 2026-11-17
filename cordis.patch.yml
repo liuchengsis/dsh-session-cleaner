@@ -1,0 +1,12 @@
+# dsh-session-cleaner bundle patch.
+#
+# Inserts the host row that registers two routes on the webServer service:
+#   POST /api-ext/session.delete            delete one session
+#   GET  /api-ext/session-cleaner/health    liveness probe for the browser half
+#
+# The browser half needs no row of its own: it loads as a client module and
+# contributes a menu item through the official slot
+# `sidebar.workspaces.session.menu.item`.
+- insert:
+    - id: session-cleaner
+      name: 'dsh-session-cleaner'
