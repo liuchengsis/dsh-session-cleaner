@@ -90,26 +90,29 @@ node --check lib/index.js
 node --check client.js
 ```
 
-## 发布（GitHub）
+## 从 GitHub 安装
 
-仓库已按可直接推送的状态准备好。在你的终端里：
+仓库：[liuchengsis/dsh-session-cleaner](https://github.com/liuchengsis/dsh-session-cleaner)
 
 ```sh
-cd dsh-session-cleaner
-git init -b main
+dsh plugin --profile desktop add github:liuchengsis/dsh-session-cleaner
+```
+
+再一个等价写法（指定提交，可复现）：
+
+```sh
+dsh plugin --profile desktop add github:liuchengsis/dsh-session-cleaner#<commit>
+```
+
+## 发布（维护者）
+
+```sh
 git add .
-git commit -m "feat: session cleaner v2 for DSH 0.2.2 (real slot, no core patch)"
-gh repo create dsh-session-cleaner --public --source . --push
+git commit -m "feat: ..."
+git push origin main
 ```
 
-没有 `gh` 就在 GitHub 网页建空仓库，然后：
-
-```sh
-git remote add origin git@github.com:<你的账号>/dsh-session-cleaner.git
-git push -u origin main
-```
-
-记得把 `package.json` 里 `repository.url` 的 `<your-account>` 换成你的账号。
+`git push` 需要凭据；如果本机 `gh` 已登录，用 `gh auth setup-git` 之后即可直接推送。
 
 ## 许可证
 

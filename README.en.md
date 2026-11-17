@@ -68,14 +68,21 @@ with `409`.
 - A session-projection cache may keep one harmless stale record until restart.
 - A running session can never be deleted.
 
-## Publish
+## Install from GitHub
+
+Repository: [liuchengsis/dsh-session-cleaner](https://github.com/liuchengsis/dsh-session-cleaner)
 
 ```sh
-git init -b main && git add . && git commit -m "feat: v2 for DSH 0.2.2"
-gh repo create dsh-session-cleaner --public --source . --push
+dsh plugin --profile desktop add github:liuchengsis/dsh-session-cleaner
 ```
 
-Replace `<your-account>` in `package.json` `repository.url` first.
+## Publish (maintainers)
+
+```sh
+git add . && git commit -m "feat: ..." && git push origin main
+```
+
+`git push` needs credentials; with `gh` signed in, run `gh auth setup-git` once.
 
 ## License
 
